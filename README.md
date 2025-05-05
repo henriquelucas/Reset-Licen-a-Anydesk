@@ -1,6 +1,36 @@
-# Reset licença de uso gratuito do Anydesk
-O Bat a seguir vai renovar sua licença de uso gratuita do Anydesk. Removendo o travamento ao acessar algum dispositivo. Importante lembrar que não se trata de um Crack.  Oriento a compra da licença se estiver em seu orçamento.
+# 🔄 Reset Licença Gratuita do AnyDesk
 
-Para executar, será necessário está com anydesk instalado na maquina.
- - Execute o  reset.cmd como Administrador.
- - Caso a inicialização do anydesk não ocorrar automaticamente, renicie o computador.
+Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloqueio que impede conexões com outros dispositivos após o uso contínuo.  
+⚠️ **Importante**: **isso não é um crack**. O objetivo é restaurar o funcionamento do AnyDesk com a licença gratuita, dentro dos limites da própria aplicação.
+
+💡 **Recomendamos fortemente** adquirir uma licença oficial se o uso for frequente ou profissional.
+
+---
+
+## ⚙️ Requisitos
+
+- AnyDesk deve estar instalado na máquina.
+- Permissões de administrador (Windows) ou sudo (Linux), se necessário.
+
+---
+
+## 🪟 Instruções para Windows
+
+1. Baixe o arquivo `reset.cmd`.
+2. Clique com o botão direito e selecione **Executar como administrador**.
+3. Aguarde a execução do script.
+4. Se o AnyDesk não iniciar automaticamente, **reinicie o computador** manualmente.
+
+---
+
+## 🐧 Instruções para Linux
+
+1. Salve o script como `restaurar_anydesk.sh`.
+2. Dê permissão de execução:
+
+   ```bash
+   chmod +x anydesk_licenca.sh
+
+3. Execute
+   ```bash
+   ./anydesk_licenca
