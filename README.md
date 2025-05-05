@@ -16,7 +16,7 @@ Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloq
 
 ## 💻 Instruções para Windows
 
-1. Baixe o arquivo `reset.cmd`.
+1. Baixe o arquivo `reset.cmd` e siga os próximos passos
 2. Clique com o botão direito e selecione **Executar como administrador**.
 3. Aguarde a execução do script.
 4. Se o AnyDesk não iniciar automaticamente, **reinicie o computador** manualmente.
