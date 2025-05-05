@@ -2,7 +2,7 @@
 # 🔄 Reset Licença Gratuita do AnyDesk
 
 Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloqueio que impede conexões com outros dispositivos após uso contínuo.  
-⚠️ **Importante**: **isso não é um crack**. O objetivo é restaurar o funcionamento do AnyDesk com a licença gratuita, dentro dos limites da própria aplicação. Ele não irá destravrar permanentemente o teu anydesk! Apenas server pra que você possa experiementar o uso gratuito novamente sem interrupções.
+> ⚠️ **Importante**: **isso não é um crack**. O objetivo é restaurar o funcionamento do AnyDesk com a licença gratuita, dentro dos limites da própria aplicação. Ele não irá destravrar permanentemente o teu anydesk! Apenas server pra que você possa experiementar o uso gratuito novamente sem interrupções.
 
 > 💡 **Recomendamos fortemente** adquirir uma licença oficial se o uso for frequente ou profissional.
 > Ou se preferir monte seu próprio servidor com Rustdesk, é OpenSource e auto-hospedado! Veja como instalar <a href="https://github.com/henriquelucas/Rustdesk-Server/tree/main" />clique aqui</a>.
