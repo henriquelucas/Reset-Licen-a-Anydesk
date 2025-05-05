@@ -28,7 +28,6 @@ Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloq
 1. Salve o script como `anydesk_licenca.sh` ou faça o download
    ```bashbash
    wget https://raw.githubusercontent.com/henriquelucas/Reset-Licen-a-Anydesk/main/anydesk_licenca.sh
-
 3. Dê permissão de execução:
 
    ```bash
