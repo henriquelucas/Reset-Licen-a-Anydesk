@@ -40,3 +40,8 @@ Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloq
 4. Execute
    ```bash
    ./anydesk_licenca
+
+
+Me paga um café?
+Você pode fazer uma contribuição pra mim através do QRCODE ou pelo pix: 10262961458
+<img src="https://raw.githubusercontent.com/henriquelucas/Reset-Licen-a-Anydesk/refs/heads/main/qrcode-pix.png" />
