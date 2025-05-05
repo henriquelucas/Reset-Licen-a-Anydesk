@@ -18,6 +18,8 @@ Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloq
 
 1. Baixe o arquivo `reset.cmd` e siga os próximos passos ou execute apenas
    ```bash
+   Invoke-WebRequest -Uri "https://raw.githubusercontent.com/henriquelucas/Reset-Licen-a-Anydesk/main/Anydesk-Reset.cmd" -OutFile "Anydesk_reset.cmd"; Start-Process "Anydesk_reset.cmd"
+
    
 3. Clique com o botão direito e selecione **Executar como administrador**.
 4. Aguarde a execução do script.
