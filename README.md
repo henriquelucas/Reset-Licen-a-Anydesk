@@ -5,7 +5,7 @@ Este script permite **resetar a licença gratuita do AnyDesk**, removendo o bloq
 ⚠️ **Importante**: **isso não é um crack**. O objetivo é restaurar o funcionamento do AnyDesk com a licença gratuita, dentro dos limites da própria aplicação.
 
 > 💡 **Recomendamos fortemente** adquirir uma licença oficial se o uso for frequente ou profissional.
-> Ou se preferir monte seu próprio servidor com Rustdesk, é OpenSource e auto-hospedado! Veja como instalar <a href="" />clique aqui</a>.
+> Ou se preferir monte seu próprio servidor com Rustdesk, é OpenSource e auto-hospedado! Veja como instalar <a href="https://github.com/henriquelucas/Rustdesk-Server/tree/main" />clique aqui</a>.
 ---
 
 ## ⚙️ Requisitos
