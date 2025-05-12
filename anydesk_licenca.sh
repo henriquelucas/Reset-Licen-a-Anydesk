@@ -1,42 +1,61 @@
 #!/bin/bash
 
-# Caminhos
-CONFIG_DIR="$HOME/.config/anydesk"
-USER_CONF="$CONFIG_DIR/user.conf"
-BACKUP_DIR="$HOME/BackupAnyDesk"
-FAVORITES_BACKUP="/tmp/anydesk_favorites.txt"
+echo "Resetando AnyDesk..."
 
-echo "Encerrando o AnyDesk..."
-pkill anydesk 2>/dev/null
-
-# Backup dos favoritos
-if [ -f "$USER_CONF" ]; then
-    grep "^ad.roster.favorites=" "$USER_CONF" > "$FAVORITES_BACKUP"
-    echo "Favoritos salvos em $FAVORITES_BACKUP"
-else
-    echo "Arquivo user.conf não encontrado, pulando backup de favoritos."
+# Verifica se está como root
+if [[ $EUID -ne 0 ]]; then
+   echo "Por favor, execute como root (sudo)." 
+   exit 1
 fi
 
-# Deletar a pasta de configuração antiga
-echo "Removendo configurações antigas..."
-rm -rf "$CONFIG_DIR"
+stop_any() {
+    echo "Parando AnyDesk..."
+    systemctl stop anydesk
+    pkill -f anydesk
+}
 
-# Restaurar os arquivos de backup
-echo "Restaurando arquivos de backup..."
-mkdir -p "$CONFIG_DIR"
-cp -r "$BACKUP_DIR/"* "$CONFIG_DIR/"
+start_any() {
+    echo "Iniciando AnyDesk..."
+    systemctl start anydesk
+    sleep 2
+    # Tenta iniciar manualmente se necessário
+    command -v anydesk >/dev/null && nohup anydesk >/dev/null 2>&1 &
+}
 
-# Restaurar favoritos
-if [ -f "$FAVORITES_BACKUP" ]; then
-    cat "$FAVORITES_BACKUP" >> "$USER_CONF"
-    rm "$FAVORITES_BACKUP"
-    echo "Favoritos restaurados com sucesso."
-else
-    echo "Nenhum favorito para restaurar."
-fi
+TEMP_DIR="/tmp/anydesk_reset"
+USER_CONF="$HOME/.anydesk/user.conf"
+SERVICE_CONF_SYS="/etc/anydesk/service.conf"
+SERVICE_CONF_USER="$HOME/.anydesk/service.conf"
+THUMB_DIR="$HOME/.anydesk/thumbnails"
 
-# Iniciar o AnyDesk novamente
-echo "Iniciando o AnyDesk..."
-nohup anydesk >/dev/null 2>&1 &
+stop_any
 
-echo "Processo concluído."
+mkdir -p "$TEMP_DIR"
+
+# Backup arquivos de usuário
+cp -f "$USER_CONF" "$TEMP_DIR/user.conf" 2>/dev/null
+cp -r "$THUMB_DIR" "$TEMP_DIR/thumbnails" 2>/dev/null
+
+# Remove configurações
+rm -f "$SERVICE_CONF_SYS" "$SERVICE_CONF_USER"
+rm -rf "$HOME/.anydesk"/*
+
+start_any
+
+# Aguarda system.conf aparecer com ID válido (simulação)
+while ! grep -q "ad.anynet.id=" /etc/anydesk/system.conf 2>/dev/null; do
+    sleep 1
+done
+
+# Restaurar dados
+stop_any
+mkdir -p "$HOME/.anydesk/thumbnails"
+cp -f "$TEMP_DIR/user.conf" "$USER_CONF" 2>/dev/null
+cp -r "$TEMP_DIR/thumbnails/"* "$HOME/.anydesk/thumbnails/" 2>/dev/null
+
+rm -rf "$TEMP_DIR"
+
+start_any
+
+echo "*********"
+echo "Concluído."
