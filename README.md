@@ -55,7 +55,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/henriquelucas/Reset-Li
 
 1. Baixe e execute usando:
    ```bash
-   curl -s https://raw.githubusercontent.com/henriquelucas/Reset-Licen-a-Anydesk/refs/heads/main/reset_licenca_macos.sh)  | bash
+   curl -s https://raw.githubusercontent.com/henriquelucas/Reset-Licen-a-Anydesk/refs/heads/main/reset_licenca_macos.sh | bash
    ```
 ---
 
