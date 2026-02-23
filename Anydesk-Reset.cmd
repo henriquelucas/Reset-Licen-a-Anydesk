@@ -1,24 +1,41 @@
+@echo off & setlocal enableextensions
+title Reset AnyDesk
+reg query HKEY_USERS\S-1-5-19 >NUL || (echo Please Run as administrator.& pause >NUL&exit)
+chcp 437
+call :stop_any
+del /f "%ALLUSERSPROFILE%\AnyDesk\service.conf"
+del /f "%APPDATA%\AnyDesk\service.conf"
+copy /y "%APPDATA%\AnyDesk\user.conf" "%temp%\"
+rd /s /q "%temp%\thumbnails" 2>NUL
+xcopy /c /e /h /r /y /i /k "%APPDATA%\AnyDesk\thumbnails" "%temp%\thumbnails"
+del /f /a /q "%ALLUSERSPROFILE%\AnyDesk\*"
+del /f /a /q "%APPDATA%\AnyDesk\*"
+call :start_any
+:lic
+type "%ALLUSERSPROFILE%\AnyDesk\system.conf" | find "ad.anynet.id=" || goto lic
+call :stop_any
+move /y "%temp%\user.conf" "%APPDATA%\AnyDesk\user.conf"
+xcopy /c /e /h /r /y /i /k "%temp%\thumbnails" "%APPDATA%\AnyDesk\thumbnails" 
+rd /s /q "%temp%\thumbnails"
+call :start_any
+echo *********
+echo Completed.
+echo(
+goto :eof
+ 
 :start_any
-:: Verifica se o serviço existe
-sc query AnyDesk >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Servico AnyDesk nao existe.
-    goto start_exe
-)
-
-:: Tenta iniciar o serviço
-sc start AnyDesk >nul 2>&1
-if %errorlevel% neq 1056 (
-    :: Se não está "already running", tenta novamente
-    timeout /t 2 >nul
-    goto start_any
-)
-
-:start_exe
-:: Tenta iniciar o executável, se existir
+sc start AnyDesk
+sc start AnyDesk
+if %errorlevel% neq 1056 goto start_any
 set AnyDesk1=%SystemDrive%\Program Files (x86)\AnyDesk\AnyDesk.exe
 set AnyDesk2=%SystemDrive%\Program Files\AnyDesk\AnyDesk.exe
 if exist "%AnyDesk1%" start "" "%AnyDesk1%"
 if exist "%AnyDesk2%" start "" "%AnyDesk2%"
-
+exit /b
+ 
+:stop_any
+sc stop AnyDesk
+sc stop AnyDesk
+if %errorlevel% neq 1062 goto stop_any
+taskkill /f /im "AnyDesk.exe"
 exit /b
