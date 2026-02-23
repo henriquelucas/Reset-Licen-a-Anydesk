@@ -1,6 +1,4 @@
 #!/bin/bash
-# Reset AnyDesk (versão macOS, didática)
-# ⚠️ Somente para estudo, não altera licenciamento real
 
 SERVICE="com.anydesk.anydesk"    # exemplo de bundle ID do serviço
 APP="/Applications/AnyDesk.app"
