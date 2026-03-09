@@ -67,10 +67,6 @@ Você pode fazer uma contribuição por PIX pelo QR Code abaixo ou usando esta c
 00020126580014BR.GOV.BCB.PIX0136f0ced452-71ac-4953-81bf-e0d3f9a9c4965204000053039865802BR5923Henrique Lucas de Sousa6009SAO PAULO62140510WMg6htGSjk63045B58
 ```
 
-```bash
-00020126580014BR.GOV.BCB.PIX0136f0ced452-71ac-4953-81bf-e0d3f9a9c4965204000053039865802BR5923Henrique Lucas de Sousa6009SAO PAULO62140510WMg6htGSjk63045B58
-```
-
  Ou pelo PayPal:
  [Doar via PayPal](https://www.paypal.com/donate/?business=PCFJCNK8GGJN2&no_recurring=0&currency_code=BRL)
 
